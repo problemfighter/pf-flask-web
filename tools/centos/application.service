@@ -1,0 +1,10 @@
+[Unit]
+Description=PF-Flask-Web
+After=network.target
+
+[Service]
+WorkingDirectory=/application/root/directory
+ExecStart=/application/root/directory/venv/bin/gunicorn --workers 3 --bind unix:/application/root/directory/pf-flask-web.sock sm40.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
