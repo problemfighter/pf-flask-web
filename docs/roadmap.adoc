@@ -1,0 +1,18 @@
+= PF Flask Web (pweb) Roadmap
+
+
+|===
+|Features|Status|Release Version
+
+|PF-PY-YMLEnv Integration||
+|PF-Flask-DB Integration||
+|MySQL Database Integration||
+|PF-Flask-REST Integration||
+|PF-Flask-Swagger Integration||
+|PF-Flask-Auth Integration||
+|PF-Flask-Mail Integration||
+|PF-Flask-Notify Integration||
+
+|||
+|||
+|===
