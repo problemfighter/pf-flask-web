@@ -1,0 +1,13 @@
+
+== How to create virtual environment?
+```bash
+# Install if it not installed yet
+pip install virtualenv
+# OR
+pip3 install virtualenv
+
+# Creating virtual environment with directory venv
+python -m venv venv
+# OR
+python3 -m venv venv
+```

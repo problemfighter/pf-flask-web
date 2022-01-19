@@ -33,7 +33,7 @@ python tools/dev_manager.py
 
 echo "Installing Development Dependencies"
 echo "-------------------------------------------------------------------------------"
-pip install .
+python setup.py develop
 
 if [ -z "$IS_IGNORE_VENV" ]; then
   deactivate
