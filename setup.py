@@ -14,7 +14,11 @@ def get_dependencies():
     if env and env == "dev":
         return dependency
 
-    return dependency + []
+    return dependency + [
+        "PF-Flask-DB", "PF-Flask-REST", "PF-Flask-Swagger",
+        "PF-PY-YMLEnv", "PF-Flask-Mail", "PF-Flask-Notify",
+        "PF-Flask-Auth",
+    ]
 
 
 setup(

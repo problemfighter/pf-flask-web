@@ -13,6 +13,6 @@
 |PF-Flask-Mail Integration||
 |PF-Flask-Notify Integration||
 
-|||
+|pweb CLI feature Integration||
 |||
 |===
