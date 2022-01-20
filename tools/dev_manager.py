@@ -84,6 +84,7 @@ source_projects = {
         "pf-flask-auth": "https://github.com/problemfighter/pf-flask-auth.git",
         "pf-py-common": "https://github.com/problemfighter/pf-py-common.git",
         "pf-flask-swagger": "https://github.com/problemfighter/pf-flask-swagger.git",
+        "pf-py-ymlenv": "https://github.com/problemfighter/pf-py-ymlenv.git",
     }
 }
 
