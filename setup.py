@@ -9,7 +9,7 @@ env = os.environ.get('source')
 
 
 def get_dependencies():
-    dependency = ['Flask', 'gunicorn']
+    dependency = ['Flask', 'gunicorn', 'Flask-Cors']
 
     if env and env == "dev":
         return dependency
