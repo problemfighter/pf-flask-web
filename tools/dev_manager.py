@@ -78,11 +78,11 @@ def clone_pull_setup(projects: dict):
 source_projects = {
     "dir": LIBRARY_DEPENDENCY,
     "repositories": {
+        "pf-py-common": "https://github.com/problemfighter/pf-py-common.git",
         "pf-flask-rest-com": "https://github.com/problemfighter/pf-flask-rest-com.git",
         "pf-flask-rest": "https://github.com/problemfighter/pf-flask-rest.git",
         "pf-flask-db": "https://github.com/problemfighter/pf-flask-db.git",
         "pf-flask-auth": "https://github.com/problemfighter/pf-flask-auth.git",
-        "pf-py-common": "https://github.com/problemfighter/pf-py-common.git",
         "pf-flask-swagger": "https://github.com/problemfighter/pf-flask-swagger.git",
         "pf-py-ymlenv": "https://github.com/problemfighter/pf-py-ymlenv.git",
     }

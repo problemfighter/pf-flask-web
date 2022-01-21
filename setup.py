@@ -17,7 +17,7 @@ def get_dependencies():
     return dependency + [
         "PF-Flask-DB", "PF-Flask-REST", "PF-Flask-Swagger",
         "PF-PY-YMLEnv", "PF-Flask-Mail", "PF-Flask-Notify",
-        "PF-Flask-Auth",
+        "PF-Flask-Auth", 'PF-PY-Common'
     ]
 
 
@@ -36,6 +36,11 @@ setup(
     include_package_data=True,
     platforms='any',
     install_requires=get_dependencies(),
+    entry_points={
+        'console_scripts': [
+            'pweb=pweb_manage:cli'
+        ],
+    },
     classifiers=[
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Apache Software License',
