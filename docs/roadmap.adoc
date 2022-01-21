@@ -16,3 +16,8 @@
 |pweb CLI feature Integration||
 |||
 |===
+
+== How to run project?
+```
+pweb run
+```

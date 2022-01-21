@@ -3,6 +3,7 @@ import typing as t
 from flask_cors import CORS
 from pf_flask_web.system12.pweb import PWeb
 from pf_flask_web.system12.pweb_app_config import PWebAppConfig
+from pf_flask_web.system12.pweb_bootstrap import PwebBootstrap
 from pf_flask_web.system12.pweb_registry import PWebRegistry
 from pf_py_ymlenv import yaml_env
 
@@ -10,6 +11,7 @@ from pf_py_ymlenv import yaml_env
 class Bismillah(object):
     _pweb_app: PWeb
     _config: PWebAppConfig = None
+    _bootstrap: PwebBootstrap = PwebBootstrap()
 
     def __init__(
         self,
@@ -42,6 +44,7 @@ class Bismillah(object):
         self._process_project_root_path(root_path=project_root_path)
         self._init_config()
         self._init_cors()
+        self._bootstrap.init_app(self._pweb_app, self._config)
 
     def run(self):
         self._pweb_app.run(host=self._config.HOST, port=self._config.PORT, load_dotenv=False)
