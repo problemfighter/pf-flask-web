@@ -4,7 +4,11 @@ from abc import abstractmethod, ABC
 class PWebRegisterModule(ABC):
 
     @abstractmethod
-    def register_model_controller(self, pweb_app):
+    def register_model(self, pweb_db):
+        pass
+
+    @abstractmethod
+    def register_controller(self, pweb_app):
         pass
 
     @abstractmethod
@@ -15,7 +19,7 @@ class PWebRegisterModule(ABC):
 class PWebAppRegistry(ABC):
 
     @abstractmethod
-    def register_model(self):
+    def register_model(self, pweb_db):
         pass
 
     @abstractmethod

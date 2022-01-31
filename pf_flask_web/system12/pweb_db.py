@@ -1,3 +1,3 @@
-from pf_flask_db.pf_app_database import PFAppDatabase
+from pf_flask_db.pf_app_database import app_db
 
-pweb_db = PFAppDatabase()
+pweb_db = app_db

@@ -55,5 +55,6 @@ class PwebBootstrap:
                 modules = self._get_modules(module_registry_package)
                 if modules:
                     with self._pweb_app.app_context():
-                        modules.register_model_controller(self._pweb_app)
-                    modules.run_on_start(self._pweb_app)
+                        modules.register_controller(self._pweb_app)
+                        modules.register_model(pweb_db)
+                        modules.run_on_start(self._pweb_app)
