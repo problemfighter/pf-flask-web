@@ -2,6 +2,7 @@ import os
 import subprocess
 
 LIBRARY_DEPENDENCY = "dev-dependencies"
+APPLICATION_DIR = "application"
 
 
 def create_directory(path):
@@ -80,6 +81,26 @@ def clone_pull_setup(projects: dict):
         print("-------------------------------------------------------------------------------------")
 
 
+def pull_setup_project(home):
+    pull_project(home)
+    setup_project(home)
+
+
+def pull_and_setup_application_modules():
+    print("\n\n\n\n-------------------------------------------------------------------------------------")
+    print("Taking Application Module Pull")
+    print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    if os.path.exists(APPLICATION_DIR):
+        pull_project(APPLICATION_DIR)
+        for directory in os.listdir(APPLICATION_DIR):
+            path = os.path.join(APPLICATION_DIR, directory)
+            if os.path.isdir(path):
+                print("\n\n\n\n################################################################################")
+                print("Taking pull and setup of " + directory)
+                print("################################################################################")
+                pull_setup_project(path)
+
+
 source_projects = {
     "dir": LIBRARY_DEPENDENCY,
     "repositories": {
@@ -98,6 +119,7 @@ source_projects = {
 
 def bismillah_sw():
     clone_pull_setup(source_projects)
+    pull_and_setup_application_modules()
 
 
 if __name__ == '__main__':

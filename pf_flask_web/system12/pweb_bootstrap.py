@@ -64,5 +64,5 @@ class PwebBootstrap:
                         for module in list_of_module:
                             if issubclass(module, PWebAppRegistry):
                                 instance = module()
-                                instance.register_controller(pweb_db)
-                                instance.run_on_start(pweb_db)
+                                instance.register_controller(self._pweb_app)
+                                instance.run_on_start(self._pweb_app)

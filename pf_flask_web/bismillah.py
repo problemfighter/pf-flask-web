@@ -6,6 +6,7 @@ from pf_flask_web.system12.pweb_app_config import PWebAppConfig
 from pf_flask_web.system12.pweb_bootstrap import PwebBootstrap
 from pf_flask_web.system12.pweb_registry import PWebRegistry
 from pf_py_ymlenv import yaml_env
+from pf_py_common.py_common import PyCommon
 
 
 class Bismillah(object):
@@ -70,6 +71,12 @@ class Bismillah(object):
         })
 
     def _merge_config(self):
+        confi_class = PyCommon.import_from_string(self._config.APPLICATION_CONFIGURATION, self._config.STRING_IMPORT_SILENT)
+        if confi_class:
+            config_map = dir(confi_class)
+            for key in config_map:
+                if key.isupper() and hasattr(self._config, key):
+                    setattr(self._config, key, getattr(confi_class, key))
         self._config = yaml_env.load(project_root_path=self._config.APP_CONFIG_PATH, config_obj=self._config)
 
     def _process_project_root_path(self, root_path):
