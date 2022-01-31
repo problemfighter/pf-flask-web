@@ -10,7 +10,7 @@ class PWebAppConfig(PFPYConfigObj):
     SECRET_KEY: str = 'random_secret_key_base'
     SQLALCHEMY_TRACK_MODIFICATIONS: bool = False
     SQLALCHEMY_DATABASE_URI: str = None
-    SWAGGER_ENABLE: bool = True
+    SWAGGER_ENABLE: bool = False
     DEFAULT_URL: str = '/'
     DEFAULT_HTML: str = 'bismillah.html'
     ALLOW_CORS_ORIGINS: list = ["*"]
@@ -19,10 +19,26 @@ class PWebAppConfig(PFPYConfigObj):
     HOST: str = "127.0.0.1"
     MODULE_REGISTRY_PACKAGE: list = ["application.config.registry.Register"]
 
+    # Auth Configuration
+    LOGIN_IDENTIFIER: str = "email"
+    ENABLE_AUTH_SYSTEM: bool = True
+    AUTH_INTERCEPT_ON_VERIFY: str = "application.config.auth_intercept.AuthInterceptOnVerify"
+    AUTH_INTERCEPT_API_LOGIN_TOKEN: str = "application.config.auth_intercept.AuthInterceptAPILoginToken"
+    AUTH_INTERCEPT_RENEW_TOKEN: str = "application.config.auth_intercept.AuthInterceptRenewToken"
+    AUTH_INTERCEPT_ON_ACL: str = "application.config.auth_intercept.AuthInterceptOnAcl"
+
+    JWT_SECRET: str = "PleaseChangeTheToken"
+    JWT_REFRESH_TOKEN_VALIDITY_MIN: int = 45
+    JWT_ACCESS_TOKEN_VALIDITY_MIN: int = 30
+    RESET_PASSWORD_TOKEN_VALID_MIN: int = 150
+
+    SKIP_URL_LIST: list = []
+    SKIP_START_WITH_URL_LIST: list = []
+
     def set_base_dir(self, path):
         if not self.BASE_DIR:
             self.BASE_DIR = path
             self.APP_CONFIG_PATH = path
             if not self.SQLALCHEMY_DATABASE_URI:
-                self.SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(self.BASE_DIR, 'pf-flask.sqlite3')
+                self.SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(self.BASE_DIR, 'pweb.sqlite3')
         return self
