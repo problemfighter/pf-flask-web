@@ -12,5 +12,3 @@ class ModuleRegistry(PWebAppRegistry):
     def register_controller(self, pweb_app):
         pass
 
-
-module_registry = ModuleRegistry()

@@ -6,7 +6,7 @@ from pf_flask_web.system12.pweb import PWeb
 from pf_flask_web.system12.pweb_app_config import PWebAppConfig
 from pf_flask_web.system12.pweb_db import pweb_db
 from pf_flask_web.system12.pweb_flask_util import PWebFlaskUtil
-from pf_flask_web.system12.pweb_interfaces import PWebRegisterModule
+from pf_flask_web.system12.pweb_interfaces import PWebRegisterModule, PWebAppRegistry
 from pf_py_common.pf_exception import PFException
 from pf_py_common.py_common import PyCommon
 
@@ -55,6 +55,14 @@ class PwebBootstrap:
                 modules = self._get_modules(module_registry_package)
                 if modules:
                     with self._pweb_app.app_context():
-                        modules.register_controller(self._pweb_app)
-                        modules.register_model(pweb_db)
-                        modules.run_on_start(self._pweb_app)
+                        list_of_module = modules.get_module_list()
+                        for module in list_of_module:
+                            if issubclass(module, PWebAppRegistry):
+                                instance = module()
+                                instance.register_model(pweb_db)
+
+                        for module in list_of_module:
+                            if issubclass(module, PWebAppRegistry):
+                                instance = module()
+                                instance.register_controller(pweb_db)
+                                instance.run_on_start(pweb_db)
