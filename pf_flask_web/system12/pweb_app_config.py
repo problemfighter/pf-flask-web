@@ -18,6 +18,7 @@ class PWebAppConfig(PFPYConfigObj):
     PORT: int = 1200
     HOST: str = "127.0.0.1"
     MODULE_REGISTRY_PACKAGE: list = ["application.config.registry.Register"]
+    APPLICATION_CONFIGURATION: str = "application.config.app_config.Config"
 
     # Auth Configuration
     LOGIN_IDENTIFIER: str = "email"
