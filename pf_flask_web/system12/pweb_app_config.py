@@ -48,12 +48,6 @@ class PWebAppConfig(PFPYConfigObj):
     API_URL_PREFIX = "/api/v1/operator"
     SUCCESS_REDIRECT = "/dashboard"
 
-    LOGIN_URL = "/login"
-    RESET_PASSWORD_URL = "/reset-password"
-    FORGOT_PASSWORD_URL = "/forgot-password"
-    RENEW_TOKEN_URL = "/renew-token"
-    LOGOUT_URL = "/logout"
-
     # Auth Email Configuration
     AUTH_EMAIL_FORM_APP_BASE_URL: str = None
     AUTH_EMAIL_REST_APP_BASE_URL: str = None

@@ -18,7 +18,7 @@ class Bismillah(object):
         self,
         project_root_path,
         config=PWebAppConfig(),
-        name: str = "PWebApp",
+        name: str = "PWeb",
         static_url_path: t.Optional[str] = None,
         static_folder: t.Optional[t.Union[str, os.PathLike]] = "static",
         static_host: t.Optional[str] = None,

@@ -29,6 +29,7 @@ class PwebBootstrap:
         self._init_default_page()
         self._init_db()
         self._init_swagger_doc()
+        self._init_auth_system()
 
     def _init_swagger_doc(self):
         PFFlaskSwaggerConfig.enable_pf_api_convention = True
@@ -81,12 +82,6 @@ class PwebBootstrap:
             PFFAuthConfig.apiURLStartWith = PWebAppConfig.API_URL_START_WITH
             PFFAuthConfig.apiUrlPrefix = PWebAppConfig.API_URL_PREFIX
             PFFAuthConfig.successRedirect = PWebAppConfig.SUCCESS_REDIRECT
-
-            PFFAuthConfig.loginURL = PWebAppConfig.LOGIN_URL
-            PFFAuthConfig.resetPasswordURL = PWebAppConfig.RESET_PASSWORD_URL
-            PFFAuthConfig.forgotPasswordURL = PWebAppConfig.FORGOT_PASSWORD_URL
-            PFFAuthConfig.renewTokenURL = PWebAppConfig.RENEW_TOKEN_URL
-            PFFAuthConfig.logoutURL = PWebAppConfig.LOGOUT_URL
 
             PFFAuthConfig.emailFormAppBaseURL = PWebAppConfig.AUTH_EMAIL_FORM_APP_BASE_URL
             PFFAuthConfig.emailRestAppBaseURL = PWebAppConfig.AUTH_EMAIL_REST_APP_BASE_URL
