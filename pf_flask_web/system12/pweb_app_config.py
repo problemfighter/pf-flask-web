@@ -21,8 +21,8 @@ class PWebAppConfig(PFPYConfigObj):
     APPLICATION_CONFIGURATION: str = "application.config.app_config.Config"
 
     # Auth Configuration
-    LOGIN_IDENTIFIER: str = "email"
     ENABLE_AUTH_SYSTEM: bool = True
+    LOGIN_IDENTIFIER: str = "email"  # email, username
     AUTH_INTERCEPT_ON_VERIFY: str = "application.config.auth_intercept.AuthInterceptOnVerify"
     AUTH_INTERCEPT_API_LOGIN_TOKEN: str = "application.config.auth_intercept.AuthInterceptAPILoginToken"
     AUTH_INTERCEPT_RENEW_TOKEN: str = "application.config.auth_intercept.AuthInterceptRenewToken"
@@ -35,6 +35,46 @@ class PWebAppConfig(PFPYConfigObj):
 
     SKIP_URL_LIST: list = []
     SKIP_START_WITH_URL_LIST: list = []
+
+    ENABLE_API_AUTH: bool = False
+    ENABLE_API_END_POINTS: bool = False
+    ENABLE_SESSION_AUTH: bool = True
+    ENABLE_FORM_END_POINTS: bool = True
+
+    # Auth End Points
+    LOGIN_VIEW_NAME = "PWeb"
+    FORM_URL_PREFIX = "/"
+    API_URL_START_WITH = "/api"
+    API_URL_PREFIX = "/api/v1/operator"
+    SUCCESS_REDIRECT = "/dashboard"
+
+    LOGIN_URL = "/login"
+    RESET_PASSWORD_URL = "/reset-password"
+    FORGOT_PASSWORD_URL = "/forgot-password"
+    RENEW_TOKEN_URL = "/renew-token"
+    LOGOUT_URL = "/logout"
+
+    # Auth Email Configuration
+    AUTH_EMAIL_FORM_APP_BASE_URL: str = None
+    AUTH_EMAIL_REST_APP_BASE_URL: str = None
+    AUTH_EMAIL_TEMPLATE_PATH: str = None
+
+    # Swagger Configuration
+    ENABLE_SWAGGER_VIEW_PAGE: bool = False
+    ENABLE_SWAGGER_PAGE_AUTH: bool = False
+    SWAGGER_PAGE_AUTH_USER: str = "pweb"
+    SWAGGER_PAGE_AUTH_PASSWORD: str = "pweb12#"
+    SWAGGER_TITLE: str = "PWeb"
+    SWAGGER_VERSION: str = "1.0.0"
+    SWAGGER_ENABLE_JWT_AUTH_GLOBAL: bool = False
+
+    # Email Configuration
+    EMAIL_SMTP_SERVER: str = None
+    EMAIL_SMTP_SENDER_EMAIL: str = None
+    EMAIL_SMTP_USER: str = None
+    EMAIL_SMTP_PASSWORD: str = None
+    EMAIL_SMTP_PORT: int = None
+    EMAIL_SMTP_ENCRYPTION: str = "ssl"  # ssl or tls
 
     def set_base_dir(self, path):
         if not self.BASE_DIR:
