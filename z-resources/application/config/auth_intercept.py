@@ -1,7 +1,9 @@
 from pf_flask_auth.common.pffa_auth_interceptor_abc import AuthInterceptOnVerifyABC, AuthInterceptAPILoginTokenABC, AuthInterceptRenewTokenABC, AuthInterceptOnAclABC
+from pf_flask_auth.common.pffa_model_dto_conf import PFFAModelDTOConf
 from pf_flask_auth.data.pffa_form_auth_data import FormAuthData
-from pf_flask_auth.model.operator import Operator
 from pf_flask_rest_com.data.pffrc_request_info import PFFRCRequestInfo
+
+Operator = PFFAModelDTOConf.OperatorModel
 
 
 class AuthInterceptOnVerify(AuthInterceptOnVerifyABC):
