@@ -15,6 +15,7 @@ build/
 
 .idea
 *.sqlite
+*.sqlite3
 
 /dev-dependencies
 /application

@@ -1,12 +1,11 @@
 from typing import Optional
 from flask import render_template
-
 from pf_flask_auth.common.pffa_auth_config import PFFAuthConfig
 from pf_flask_auth.pf_flask_auth import pf_flask_auth
 from pf_flask_mail.common.pffm_config import PFFMConfig
 from pf_flask_rest.pf_flask_rest import pf_flask_rest
 from pf_flask_swagger.common.pf_flask_swagger_config import PFFlaskSwaggerConfig
-from pf_flask_swagger.flask.pf_flask_swagger import PFFlaskSwagger, pf_flask_swagger
+from pf_flask_swagger.flask.pf_flask_swagger import pf_flask_swagger
 from pf_flask_web.system12.pweb import PWeb
 from pf_flask_web.system12.pweb_app_config import PWebAppConfig
 from pf_flask_web.system12.pweb_db import pweb_db
@@ -28,6 +27,7 @@ class PwebBootstrap:
         self._register_modules()
         self._init_default_page()
         self._init_db()
+        self._init_rest_engine()
         self._init_swagger_doc()
         self._init_auth_system()
 
@@ -50,42 +50,42 @@ class PwebBootstrap:
 
     def _init_email(self):
         self._email_config = PFFMConfig()
-        PFFMConfig.smtpServer = self._email_config.smtpServer = PWebAppConfig.EMAIL_SMTP_SERVER
-        PFFMConfig.smtpSenderEmail = self._email_config.smtpSenderEmail = PWebAppConfig.EMAIL_SMTP_SENDER_EMAIL
-        PFFMConfig.smtpUser = self._email_config.smtpUser = PWebAppConfig.EMAIL_SMTP_USER
-        PFFMConfig.smtpPassword = self._email_config.smtpPassword = PWebAppConfig.EMAIL_SMTP_PASSWORD
-        PFFMConfig.smtpPort = self._email_config.smtpPort = PWebAppConfig.EMAIL_SMTP_PORT
-        PFFMConfig.smtpEncryption = self._email_config.smtpEncryption = PWebAppConfig.EMAIL_SMTP_ENCRYPTION
+        PFFMConfig.smtpServer = self._email_config.smtpServer = self._config.EMAIL_SMTP_SERVER
+        PFFMConfig.smtpSenderEmail = self._email_config.smtpSenderEmail = self._config.EMAIL_SMTP_SENDER_EMAIL
+        PFFMConfig.smtpUser = self._email_config.smtpUser = self._config.EMAIL_SMTP_USER
+        PFFMConfig.smtpPassword = self._email_config.smtpPassword = self._config.EMAIL_SMTP_PASSWORD
+        PFFMConfig.smtpPort = self._email_config.smtpPort = self._config.EMAIL_SMTP_PORT
+        PFFMConfig.smtpEncryption = self._email_config.smtpEncryption = self._config.EMAIL_SMTP_ENCRYPTION
 
     def _init_auth_system(self):
         if self._config.ENABLE_AUTH_SYSTEM:
-            PFFAuthConfig.loginIdentifier = PWebAppConfig.LOGIN_IDENTIFIER
-            PFFAuthConfig.jwtSecret = PWebAppConfig.JWT_SECRET
-            PFFAuthConfig.jwtRefreshTokenValidityMin = PWebAppConfig.JWT_REFRESH_TOKEN_VALIDITY_MIN
-            PFFAuthConfig.jwtAccessTokenValidityMin = PWebAppConfig.JWT_ACCESS_TOKEN_VALIDITY_MIN
-            PFFAuthConfig.resetPasswordTokenValidMin = PWebAppConfig.RESET_PASSWORD_TOKEN_VALID_MIN
-            PFFAuthConfig.isStringImportSilent = PWebAppConfig.STRING_IMPORT_SILENT
+            PFFAuthConfig.loginIdentifier = self._config.LOGIN_IDENTIFIER
+            PFFAuthConfig.jwtSecret = self._config.JWT_SECRET
+            PFFAuthConfig.jwtRefreshTokenValidityMin = self._config.JWT_REFRESH_TOKEN_VALIDITY_MIN
+            PFFAuthConfig.jwtAccessTokenValidityMin = self._config.JWT_ACCESS_TOKEN_VALIDITY_MIN
+            PFFAuthConfig.resetPasswordTokenValidMin = self._config.RESET_PASSWORD_TOKEN_VALID_MIN
+            PFFAuthConfig.isStringImportSilent = self._config.STRING_IMPORT_SILENT
 
-            if PWebAppConfig.SKIP_URL_LIST:
-                PFFAuthConfig.skipUrlList.extend(PWebAppConfig.SKIP_URL_LIST)
+            if self._config.SKIP_URL_LIST:
+                PFFAuthConfig.skipUrlList.extend(self._config.SKIP_URL_LIST)
 
-            if PWebAppConfig.SKIP_START_WITH_URL_LIST:
-                PFFAuthConfig.skipStartWithUrlList.extend(PWebAppConfig.SKIP_START_WITH_URL_LIST)
+            if self._config.SKIP_START_WITH_URL_LIST:
+                PFFAuthConfig.skipStartWithUrlList.extend(self._config.SKIP_START_WITH_URL_LIST)
 
-            PFFAuthConfig.enableAPIAuth = PWebAppConfig.ENABLE_API_AUTH
-            PFFAuthConfig.enableSessionAuth = PWebAppConfig.ENABLE_SESSION_AUTH
-            PFFAuthConfig.enableAPIEndPoints = PWebAppConfig.ENABLE_API_END_POINTS
-            PFFAuthConfig.enableFormEndPoints = PWebAppConfig.ENABLE_FORM_END_POINTS
+            PFFAuthConfig.enableAPIAuth = self._config.ENABLE_API_AUTH
+            PFFAuthConfig.enableSessionAuth = self._config.ENABLE_SESSION_AUTH
+            PFFAuthConfig.enableAPIEndPoints = self._config.ENABLE_API_END_POINTS
+            PFFAuthConfig.enableFormEndPoints = self._config.ENABLE_FORM_END_POINTS
 
-            PFFAuthConfig.loginViewName = PWebAppConfig.LOGIN_VIEW_NAME
-            PFFAuthConfig.formUrlPrefix = PWebAppConfig.FORM_URL_PREFIX
-            PFFAuthConfig.apiURLStartWith = PWebAppConfig.API_URL_START_WITH
-            PFFAuthConfig.apiUrlPrefix = PWebAppConfig.API_URL_PREFIX
-            PFFAuthConfig.successRedirect = PWebAppConfig.SUCCESS_REDIRECT
+            PFFAuthConfig.loginViewName = self._config.LOGIN_VIEW_NAME
+            PFFAuthConfig.formUrlPrefix = self._config.FORM_URL_PREFIX
+            PFFAuthConfig.apiURLStartWith = self._config.API_URL_START_WITH
+            PFFAuthConfig.apiUrlPrefix = self._config.API_URL_PREFIX
+            PFFAuthConfig.successRedirect = self._config.SUCCESS_REDIRECT
 
-            PFFAuthConfig.emailFormAppBaseURL = PWebAppConfig.AUTH_EMAIL_FORM_APP_BASE_URL
-            PFFAuthConfig.emailRestAppBaseURL = PWebAppConfig.AUTH_EMAIL_REST_APP_BASE_URL
-            PFFAuthConfig.emailTemplatePath = PWebAppConfig.AUTH_EMAIL_TEMPLATE_PATH
+            PFFAuthConfig.emailFormAppBaseURL = self._config.AUTH_EMAIL_FORM_APP_BASE_URL
+            PFFAuthConfig.emailRestAppBaseURL = self._config.AUTH_EMAIL_REST_APP_BASE_URL
+            PFFAuthConfig.emailTemplatePath = self._config.AUTH_EMAIL_TEMPLATE_PATH
             PFFAuthConfig.emailConfig = self._email_config
 
             pf_flask_auth.init_app(self._pweb_app)
