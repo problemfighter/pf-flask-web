@@ -1,5 +1,6 @@
 import os
 from pf_py_ymlenv.pfpy_config_obj import PFPYConfigObj
+from pf_flask_auth.model.pffa_abstract_model import OperatorAbstract, OperatorTokenAbstract
 
 
 class PWebAppConfig(PFPYConfigObj):
@@ -40,6 +41,11 @@ class PWebAppConfig(PFPYConfigObj):
     ENABLE_API_END_POINTS: bool = False
     ENABLE_SESSION_AUTH: bool = True
     ENABLE_FORM_END_POINTS: bool = True
+
+    # Model Customization
+    ENABLE_DEFAULT_AUTH_MODEL: bool = True
+    CUSTOM_OPERATOR_MODEL: OperatorAbstract = None
+    CUSTOM_OPERATOR_TOKEN_MODEL: OperatorTokenAbstract = None
 
     # Auth End Points
     LOGIN_VIEW_NAME = "PWeb"

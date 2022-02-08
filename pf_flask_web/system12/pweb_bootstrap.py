@@ -76,6 +76,7 @@ class PwebBootstrap:
             PFFAuthConfig.enableSessionAuth = self._config.ENABLE_SESSION_AUTH
             PFFAuthConfig.enableAPIEndPoints = self._config.ENABLE_API_END_POINTS
             PFFAuthConfig.enableFormEndPoints = self._config.ENABLE_FORM_END_POINTS
+            PFFAuthConfig.isCreateDefaultModel = self._config.ENABLE_DEFAULT_AUTH_MODEL
 
             PFFAuthConfig.loginViewName = self._config.LOGIN_VIEW_NAME
             PFFAuthConfig.formUrlPrefix = self._config.FORM_URL_PREFIX

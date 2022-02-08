@@ -1,18 +1,16 @@
 from pf_flask_auth.common.pffa_auth_interceptor_abc import AuthInterceptOnVerifyABC, AuthInterceptAPILoginTokenABC, AuthInterceptRenewTokenABC, AuthInterceptOnAclABC
-from pf_flask_auth.common.pffa_model_dto_conf import PFFAModelDTOConf
 from pf_flask_auth.data.pffa_form_auth_data import FormAuthData
+from pf_flask_auth.model.pffa_default_model import DefaultModel
 from pf_flask_rest_com.data.pffrc_request_info import PFFRCRequestInfo
-
-Operator = PFFAModelDTOConf.OperatorModel
 
 
 class AuthInterceptOnVerify(AuthInterceptOnVerifyABC):
-    def process(self, operator: Operator, operator_service, is_api: bool) -> Operator:
+    def process(self, operator: DefaultModel.OperatorModel, operator_service, is_api: bool) -> DefaultModel.OperatorModel:
         pass
 
 
 class AuthInterceptAPILoginToken(AuthInterceptAPILoginTokenABC):
-    def process(self, response_map: dict, operator: Operator, operator_api_service) -> dict:
+    def process(self, response_map: dict, operator: DefaultModel.OperatorModel, operator_api_service) -> dict:
         pass
 
 
