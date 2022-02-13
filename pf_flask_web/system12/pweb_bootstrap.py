@@ -40,6 +40,16 @@ class PwebBootstrap:
         PFFlaskSwaggerConfig.title = self._config.SWAGGER_TITLE
         PFFlaskSwaggerConfig.version = self._config.SWAGGER_VERSION
         PFFlaskSwaggerConfig.enable_jwt_auth_global = self._config.SWAGGER_ENABLE_JWT_AUTH_GLOBAL
+
+        if not isinstance(self._config.SKIP_URL_LIST, list):
+            self._config.SKIP_URL_LIST = []
+        self._config.SKIP_URL_LIST.append(PFFlaskSwaggerConfig.swagger_json_definition_url)
+        self._config.SKIP_URL_LIST.append(PFFlaskSwaggerConfig.swagger_ui_url)
+
+        if not isinstance(self._config.SKIP_START_WITH_URL_LIST, list):
+            self._config.SKIP_START_WITH_URL_LIST = []
+        self._config.SKIP_START_WITH_URL_LIST.append("/" + PFFlaskSwaggerConfig.swagger_static_folder)
+
         pf_flask_swagger.init_app(self._pweb_app)
 
     def _init_db(self):
