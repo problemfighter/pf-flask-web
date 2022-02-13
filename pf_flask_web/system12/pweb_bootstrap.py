@@ -90,6 +90,7 @@ class PwebBootstrap:
             PFFAuthConfig.isCreateDefaultModel = self._config.ENABLE_DEFAULT_AUTH_MODEL
             PFFAuthConfig.customOperatorModel = self._config.CUSTOM_OPERATOR_MODEL
             PFFAuthConfig.customOperatorTokenModel = self._config.CUSTOM_OPERATOR_TOKEN_MODEL
+            PFFAuthConfig.customOperatorDTO = self._config.CUSTOM_OPERATOR_DTO
             PFFAuthConfig.enablePFAPIConvention = True
 
             PFFAuthConfig.loginViewName = self._config.LOGIN_VIEW_NAME

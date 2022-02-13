@@ -1,4 +1,6 @@
 import os
+
+from pf_flask_auth.dto.default_dto import OperatorDTO
 from pf_py_ymlenv.pfpy_config_obj import PFPYConfigObj
 from pf_flask_auth.model.pffa_abstract_model import OperatorAbstract, OperatorTokenAbstract
 
@@ -46,6 +48,7 @@ class PWebAppConfig(PFPYConfigObj):
     ENABLE_DEFAULT_AUTH_MODEL: bool = True
     CUSTOM_OPERATOR_MODEL: OperatorAbstract = None
     CUSTOM_OPERATOR_TOKEN_MODEL: OperatorTokenAbstract = None
+    CUSTOM_OPERATOR_DTO: OperatorDTO = None
 
     # Auth End Points
     LOGIN_VIEW_NAME = "PWeb"
