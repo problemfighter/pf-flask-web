@@ -113,6 +113,8 @@ source_projects = {
         "pf-py-ymlenv": "https://github.com/problemfighter/pf-py-ymlenv.git",
         "pf-flask-mail": "https://github.com/problemfighter/pf-flask-mail.git",
         "pf-py-jinja": "https://github.com/problemfighter/pf-py-jinja.git",
+        "pf-py-file": "https://github.com/problemfighter/pf-py-file.git",
+        "pf-flask-file": "https://github.com/problemfighter/pf-flask-file.git",
     }
 }
 
