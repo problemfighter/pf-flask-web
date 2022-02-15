@@ -1,5 +1,5 @@
 from typing import Optional
-from flask import render_template
+from flask import render_template, send_from_directory
 from pf_flask_auth.common.pffa_auth_config import PFFAuthConfig
 from pf_flask_auth.pf_flask_auth import pf_flask_auth
 from pf_flask_mail.common.pffm_config import PFFMConfig
@@ -26,6 +26,7 @@ class PwebBootstrap:
         self._init_email()
         self._register_modules()
         self._init_default_page()
+        self.init_static_resource_mapping()
         self._init_db()
         self._init_rest_engine()
         self._init_swagger_doc()
@@ -140,3 +141,12 @@ class PwebBootstrap:
                                 instance = module()
                                 instance.register_controller(self._pweb_app)
                                 instance.run_on_start(self._pweb_app)
+
+    def init_static_resource_mapping(self):
+        if self._config.UPLOADED_STATIC_RESOURCES_URL and self._config.UPLOADED_STATIC_RESOURCES_URL != "":
+            self._config.SKIP_START_WITH_URL_LIST.append(self._config.UPLOADED_STATIC_RESOURCES_URL)
+            url = self._config.UPLOADED_STATIC_RESOURCES_URL + "/<path:path>"
+            self._pweb_app.add_url_rule(url, view_func=self.static_resource_endpoint)
+
+    def static_resource_endpoint(self, path):
+        return send_from_directory(self._config.UPLOADED_STATIC_RESOURCES, path)
