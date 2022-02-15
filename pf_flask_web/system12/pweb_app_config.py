@@ -1,5 +1,4 @@
 import os
-
 from pf_flask_auth.dto.default_dto import OperatorDTO
 from pf_py_ymlenv.pfpy_config_obj import PFPYConfigObj
 from pf_flask_auth.model.pffa_abstract_model import OperatorAbstract, OperatorTokenAbstract
@@ -78,6 +77,8 @@ class PWebAppConfig(PFPYConfigObj):
     EMAIL_SMTP_PASSWORD: str = None
     EMAIL_SMTP_PORT: int = None
     EMAIL_SMTP_ENCRYPTION: str = "ssl"  # ssl or tls
+
+    
 
     def set_base_dir(self, path):
         if not self.BASE_DIR:
