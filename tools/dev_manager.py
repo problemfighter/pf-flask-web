@@ -115,6 +115,8 @@ source_projects = {
         "pf-py-jinja": "https://github.com/problemfighter/pf-py-jinja.git",
         "pf-py-file": "https://github.com/problemfighter/pf-py-file.git",
         "pf-flask-file": "https://github.com/problemfighter/pf-flask-file.git",
+        "pf-py-text": "https://github.com/problemfighter/pf-py-text.git",
+        "pf-py-datetime": "https://github.com/problemfighter/pf-py-datetime.git",
     }
 }
 
