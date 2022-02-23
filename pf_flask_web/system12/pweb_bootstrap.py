@@ -38,7 +38,12 @@ class PwebBootstrap:
         PFFlaskSwaggerConfig.enable_swagger_page_auth = self._config.ENABLE_SWAGGER_PAGE_AUTH
         PFFlaskSwaggerConfig.swagger_page_auth_user = self._config.SWAGGER_PAGE_AUTH_USER
         PFFlaskSwaggerConfig.swagger_page_auth_password = self._config.SWAGGER_PAGE_AUTH_PASSWORD
-        PFFlaskSwaggerConfig.title = self._config.SWAGGER_TITLE
+
+        swagger_title = self._config.SWAGGER_TITLE
+        if not swagger_title:
+            swagger_title = self._config.APP_NAME
+        PFFlaskSwaggerConfig.title = swagger_title
+
         PFFlaskSwaggerConfig.version = self._config.SWAGGER_VERSION
         PFFlaskSwaggerConfig.enable_jwt_auth_global = self._config.SWAGGER_ENABLE_JWT_AUTH_GLOBAL
 
@@ -94,7 +99,11 @@ class PwebBootstrap:
             PFFAuthConfig.customOperatorDTO = self._config.CUSTOM_OPERATOR_DTO
             PFFAuthConfig.enablePFAPIConvention = True
 
-            PFFAuthConfig.loginViewName = self._config.LOGIN_VIEW_NAME
+            login_view_name = self._config.LOGIN_VIEW_NAME
+            if not login_view_name:
+                login_view_name = self._config.APP_NAME
+            PFFAuthConfig.loginViewName = login_view_name
+
             PFFAuthConfig.formUrlPrefix = self._config.FORM_URL_PREFIX
             PFFAuthConfig.apiURLStartWith = self._config.API_URL_START_WITH
             PFFAuthConfig.apiUrlPrefix = self._config.API_URL_PREFIX

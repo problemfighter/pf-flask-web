@@ -49,8 +49,11 @@ class PWebAppConfig(PFPYConfigObj):
     CUSTOM_OPERATOR_TOKEN_MODEL: OperatorTokenAbstract = None
     CUSTOM_OPERATOR_DTO: OperatorDTO = None
 
+    # Basic Configuration
+    APP_NAME = "PWeb"
+
     # Auth End Points
-    LOGIN_VIEW_NAME = "PWeb"
+    LOGIN_VIEW_NAME = None
     FORM_URL_PREFIX = "/"
     API_URL_START_WITH = "/api"
     API_URL_PREFIX = "/api/v1/operator"
@@ -66,7 +69,7 @@ class PWebAppConfig(PFPYConfigObj):
     ENABLE_SWAGGER_PAGE_AUTH: bool = False
     SWAGGER_PAGE_AUTH_USER: str = "pweb"
     SWAGGER_PAGE_AUTH_PASSWORD: str = "pweb12#"
-    SWAGGER_TITLE: str = "PWeb"
+    SWAGGER_TITLE: str = None
     SWAGGER_VERSION: str = "1.0.0"
     SWAGGER_ENABLE_JWT_AUTH_GLOBAL: bool = False
 
