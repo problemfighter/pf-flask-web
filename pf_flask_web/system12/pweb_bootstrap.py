@@ -131,6 +131,8 @@ class PwebBootstrap:
                 if modules:
                     with self._pweb_app.app_context():
                         list_of_module = modules.get_module_list()
+                        if not list_of_module:
+                            return
                         for module in list_of_module:
                             if issubclass(module, PWebAppRegistry):
                                 instance = module()

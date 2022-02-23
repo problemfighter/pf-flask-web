@@ -13,7 +13,7 @@ class PWebAppConfig(PFPYConfigObj):
     SQLALCHEMY_TRACK_MODIFICATIONS: bool = False
     SQLALCHEMY_DATABASE_URI: str = None
     SWAGGER_ENABLE: bool = False
-    DEFAULT_URL: str = '/'
+    DEFAULT_URL: str = None
     DEFAULT_HTML: str = 'bismillah.html'
     ALLOW_CORS_ORIGINS: list = ["*"]
     ALLOW_ACCESS_CONTROL_ORIGIN: str = "*"
