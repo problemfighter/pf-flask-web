@@ -117,6 +117,7 @@ source_projects = {
         "pf-flask-file": "https://github.com/problemfighter/pf-flask-file.git",
         "pf-py-text": "https://github.com/problemfighter/pf-py-text.git",
         "pf-py-datetime": "https://github.com/problemfighter/pf-py-datetime.git",
+        "pf-pweb-bdash": "https://github.com/problemfighter/pf-pweb-bdash.git",
     }
 }
 
