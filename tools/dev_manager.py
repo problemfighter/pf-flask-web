@@ -118,6 +118,7 @@ source_projects = {
         "pf-py-text": "https://github.com/problemfighter/pf-py-text.git",
         "pf-py-datetime": "https://github.com/problemfighter/pf-py-datetime.git",
         "pf-pweb-bdash": "https://github.com/problemfighter/pf-pweb-bdash.git",
+        "pf-py-docproc": "https://github.com/problemfighter/pf-py-docproc.git",
     }
 }
 
