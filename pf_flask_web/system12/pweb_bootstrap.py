@@ -100,6 +100,12 @@ class PwebBootstrap:
             PFFAuthConfig.customOperatorDTO = self._config.CUSTOM_OPERATOR_DTO
             PFFAuthConfig.enablePFAPIConvention = True
 
+            # ABC
+            PFFAuthConfig.authInterceptOnVerifyABC = self._config.AUTH_INTERCEPT_ON_VERIFY
+            PFFAuthConfig.authInterceptAPILoginTokenABC = self._config.AUTH_INTERCEPT_API_LOGIN_TOKEN
+            PFFAuthConfig.authInterceptRenewTokenABC = self._config.AUTH_INTERCEPT_RENEW_TOKEN
+            PFFAuthConfig.authInterceptOnAclABC = self._config.AUTH_INTERCEPT_ON_ACL
+
             login_view_name = self._config.LOGIN_VIEW_NAME
             if not login_view_name:
                 login_view_name = self._config.APP_NAME
