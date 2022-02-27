@@ -48,6 +48,7 @@ class PWebAppConfig(PFPYConfigObj):
     CUSTOM_OPERATOR_MODEL: OperatorAbstract = None
     CUSTOM_OPERATOR_TOKEN_MODEL: OperatorTokenAbstract = None
     CUSTOM_OPERATOR_DTO: OperatorDTO = None
+    CUSTOM_OPERATOR_ADDITIONAL_FIELDS: list = None
 
     # Basic Configuration
     APP_NAME = "PWeb"

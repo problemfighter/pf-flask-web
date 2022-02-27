@@ -81,6 +81,7 @@ class PwebBootstrap:
             PFFAuthConfig.jwtAccessTokenValidityMin = self._config.JWT_ACCESS_TOKEN_VALIDITY_MIN
             PFFAuthConfig.resetPasswordTokenValidMin = self._config.RESET_PASSWORD_TOKEN_VALID_MIN
             PFFAuthConfig.isStringImportSilent = self._config.STRING_IMPORT_SILENT
+            PFFAuthConfig.operatorAdditionalFields = self._config.CUSTOM_OPERATOR_ADDITIONAL_FIELDS
 
             if self._config.SKIP_URL_LIST:
                 PFFAuthConfig.skipUrlList.extend(self._config.SKIP_URL_LIST)
