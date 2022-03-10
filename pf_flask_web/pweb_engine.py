@@ -19,7 +19,7 @@ class PWebEngine(Bismillah):
 
     def run(self):
         cli_args = sys.argv
-        if "install" in cli_args or "develop" in cli_args:
+        if "develop" in cli_args:
             self.setup_script()
             self.color_print("Successfully Install Completed!", color="green", bold=True)
         else:
