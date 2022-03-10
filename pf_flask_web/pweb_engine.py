@@ -15,7 +15,7 @@ class PWebEngine(Bismillah):
     def setup_script(self):
         if self._project_name:
             name = PFPTStringUtil.system_readable(self._project_name)
-            setup(name=name, entry_points={'console_scripts': ['pweb=pweb_manage:cli']})
+            setup(name=name, entry_points={'console_scripts': ['pweb=pweb_cli:cli']})
 
     def run(self):
         cli_args = sys.argv
