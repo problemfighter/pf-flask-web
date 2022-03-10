@@ -5,7 +5,7 @@ from pf_flask_web import Bismillah
 from pf_py_text.pfpt_string_util import PFPTStringUtil
 
 
-class PWeb(Bismillah):
+class PWebEngine(Bismillah):
     _project_name = "PWebApp"
 
     def __init__(self, name, project_root_path, **kwargs):
@@ -23,8 +23,8 @@ class PWeb(Bismillah):
             self.setup_script()
             self.color_print("Successfully Install Completed!", color="green", bold=True)
         else:
-            super(PWeb, self).run()
+            super(PWebEngine, self).run()
 
     @staticmethod
-    def init(name, project_root_path, **kwargs):
-        return PWeb(name=name, project_root_path=project_root_path, **kwargs)
+    def start(name, project_root_path, **kwargs):
+        return PWebEngine(name=name, project_root_path=project_root_path, **kwargs)

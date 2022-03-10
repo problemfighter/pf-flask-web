@@ -1,9 +1,9 @@
-from pf_flask_web.pweb import PWeb
+from pf_flask_web.pweb_engine import PWebEngine
 
-pweb_app = PWeb.init("PWeb", __file__)
-cli = pweb_app.cli
-wsgi = pweb_app.get_app()
+pweb_engine = PWebEngine.start("PWebEngine", __file__)
+cli = pweb_engine.cli
+wsgi = pweb_engine.get_app()
 
 if __name__ == '__main__':
-    pweb_app.run()
+    pweb_engine.run()
 
