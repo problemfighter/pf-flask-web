@@ -20,3 +20,7 @@ build/
 /dev-dependencies
 /application
 /uploaded-resources
+
+node_modules
+
+*.lock
