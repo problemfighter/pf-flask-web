@@ -1,5 +1,8 @@
 import os
 import typing as t
+
+import click
+from flask.cli import FlaskGroup
 from flask_cors import CORS
 from pf_flask_web.system12.pweb import PWeb
 from pf_flask_web.system12.pweb_app_config import PWebAppConfig
@@ -82,3 +85,17 @@ class Bismillah(object):
     def _process_project_root_path(self, root_path):
         root_dir = os.path.dirname(os.path.abspath(root_path))
         self._config.set_base_dir(root_dir)
+
+    def _color_print(self, text, color, bold=False):
+        click.echo(click.style(text, fg=color, bold=bold))
+
+    def cli(self):
+        self._color_print("-------------------------", "yellow")
+        self._color_print("   Welcome to PWeb CLI   ", "green", True)
+        self._color_print("-------------------------", "yellow")
+
+        @click.group(cls=FlaskGroup, create_app=self.get_app)
+        def invoke_cli_script():
+            pass
+
+        return invoke_cli_script()

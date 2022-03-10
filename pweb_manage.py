@@ -1,5 +1,3 @@
-import click
-from flask.cli import FlaskGroup
 from pf_flask_web import Bismillah
 
 
@@ -8,11 +6,7 @@ def pweb_factory():
     return pweb_app
 
 
-@click.group(cls=FlaskGroup, create_app=pweb_factory().get_app)
-def cli():
-    print("Welcome to PWeb CLI")
-
-
+cli = pweb_factory().cli
 wsgi = pweb_factory().get_app()
 
 
