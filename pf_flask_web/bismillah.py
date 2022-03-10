@@ -86,13 +86,13 @@ class Bismillah(object):
         root_dir = os.path.dirname(os.path.abspath(root_path))
         self._config.set_base_dir(root_dir)
 
-    def _color_print(self, text, color, bold=False):
+    def color_print(self, text, color, bold=False):
         click.echo(click.style(text, fg=color, bold=bold))
 
     def cli(self):
-        self._color_print("-------------------------", "yellow")
-        self._color_print("   Welcome to PWeb CLI   ", "green", True)
-        self._color_print("-------------------------", "yellow")
+        self.color_print("-------------------------", "yellow")
+        self.color_print("   Welcome to PWeb CLI   ", "green", True)
+        self.color_print("-------------------------", "yellow")
 
         @click.group(cls=FlaskGroup, create_app=self.get_app)
         def invoke_cli_script():
