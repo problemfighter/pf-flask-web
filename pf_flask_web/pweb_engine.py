@@ -15,11 +15,11 @@ class PWebEngine(Bismillah):
     def setup_script(self):
         if self._project_name:
             name = PFPTStringUtil.system_readable(self._project_name)
-            setup(name=name, entry_points={'console_scripts': ['pweb=pweb_engine:cli']})
+            setup(name=name, entry_points={'console_scripts': ['pweb=pweb_manage:cli']})
 
     def run(self):
         cli_args = sys.argv
-        if "install" in cli_args:
+        if "install" in cli_args or "develop" in cli_args:
             self.setup_script()
             self.color_print("Successfully Install Completed!", color="green", bold=True)
         else:
