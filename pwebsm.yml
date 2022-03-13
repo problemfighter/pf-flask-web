@@ -1,0 +1,42 @@
+dependencies:
+  - dir: "dev-dependencies"
+    setup-py: "develop"
+    branch: "dev"
+    mode:
+      - dev
+    repo:
+      - name: "pf-py-common"
+        url: "https://github.com/problemfighter/pf-py-common.git"
+      - name: "pf-flask-rest-com"
+        url: "https://github.com/problemfighter/pf-flask-rest-com.git"
+      - name: "pf-flask-rest"
+        url: "https://github.com/problemfighter/pf-flask-rest.git"
+      - name: "pf-flask-db"
+        url: "https://github.com/problemfighter/pf-flask-db.git"
+      - name: "pf-flask-auth"
+        url: "https://github.com/problemfighter/pf-flask-auth.git"
+      - name: "pf-flask-swagger"
+        url: "https://github.com/problemfighter/pf-flask-swagger.git"
+      - name: "pf-py-ymlenv"
+        url: "https://github.com/problemfighter/pf-py-ymlenv.git"
+      - name: "pf-flask-mail"
+        url: "https://github.com/problemfighter/pf-flask-mail.git"
+      - name: "pf-py-jinja"
+        url: "https://github.com/problemfighter/pf-py-jinja.git"
+      - name: "pf-py-file"
+        url: "https://github.com/problemfighter/pf-py-file.git"
+      - name: "pf-flask-file"
+        url: "https://github.com/problemfighter/pf-flask-file.git"
+      - name: "pf-py-text"
+        url: "https://github.com/problemfighter/pf-py-text.git"
+      - name: "pf-py-datetime"
+        url: "https://github.com/problemfighter/pf-py-datetime.git"
+      - name: "pf-pweb-bdash"
+        url: "https://github.com/problemfighter/pf-pweb-bdash.git"
+      - name: "pf-py-docproc"
+        url: "https://github.com/problemfighter/pf-py-docproc.git"
+      - name: "pf-pweb-sourceman"
+        url: "https://github.com/problemfighter/pf-pweb-sourceman.git"
+
+before_end:
+  - python setup.py develop
