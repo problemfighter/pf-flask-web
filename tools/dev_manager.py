@@ -120,6 +120,7 @@ source_projects = {
         "pf-pweb-bdash": "https://github.com/problemfighter/pf-pweb-bdash.git",
         "pf-py-docproc": "https://github.com/problemfighter/pf-py-docproc.git",
         "pf-pweb-sourceman": "https://github.com/problemfighter/pf-pweb-sourceman.git",
+        "pf-flask-notify": "https://github.com/problemfighter/pf-flask-notify.git",
     }
 }
 

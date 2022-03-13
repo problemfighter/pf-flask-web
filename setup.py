@@ -16,7 +16,7 @@ def get_dependencies():
 
     return dependency + [
         "PF-Flask-DB", "PF-Flask-REST", "PF-Flask-Swagger",
-        "PF-PY-YMLEnv", "PF-Flask-Mail", "PF-Flask-Notify",
+        "PF-PY-YMLEnv", "PF-Flask-Mail",
         "PF-Flask-Auth", 'PF-PY-Common', 'PF-Flask-File'
     ]
 
