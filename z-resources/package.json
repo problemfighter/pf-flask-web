@@ -4,7 +4,7 @@
   "description": "PWeb Application",
   "main": "index.jsx",
   "repository": "https://github.com/problemfighter/pf-flask-web.git",
-  "author": "Touhid Mia <hmtm.cse@gmail.com>",
+  "author": "Problem Fighter <problemfighter.com@gmail.com>",
   "license": "Apache License 2.0",
   "private": true,
   "workspaces": [
