@@ -29,6 +29,7 @@ class PWebAppConfig(PFPYConfigObj):
     AUTH_INTERCEPT_API_LOGIN_TOKEN: str = "application.config.auth_intercept.AuthInterceptAPILoginToken"
     AUTH_INTERCEPT_RENEW_TOKEN: str = "application.config.auth_intercept.AuthInterceptRenewToken"
     AUTH_INTERCEPT_ON_ACL: str = "application.config.auth_intercept.AuthInterceptOnAcl"
+    AUTH_CUSTOM_LOGIN_PROCESSOR: str = "application.config.auth_intercept.AuthCustomLogin"
 
     JWT_SECRET: str = "PleaseChangeTheToken"
     JWT_REFRESH_TOKEN_VALIDITY_MIN: int = 45
