@@ -41,4 +41,4 @@ def restore(id: int):
 @contact_controller.route("/list", methods=['GET'])
 @pfms_pagination_sort_search_list(response_obj=ContactDetailsDto)
 def list():
-    return contact_service.list()
+    return contact_service.list
