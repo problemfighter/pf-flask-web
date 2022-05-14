@@ -21,3 +21,6 @@ class PWebAppRegistry(ABC):
     @abstractmethod
     def run_on_start(self, pweb_app):
         pass
+
+    def run_on_cli_init(self, pweb_app):
+        pass
