@@ -24,13 +24,13 @@ class PwebBootstrap:
         self._config = config
         self._pweb_app = pweb_app
         self._init_email()
+        self._init_auth_system()
         self._register_modules()
         self._init_default_page()
         self.init_static_resource_mapping()
         self._init_db()
         self._init_rest_engine()
         self._init_swagger_doc()
-        self._init_auth_system()
         self._pweb_module_cli()
 
     def _init_swagger_doc(self):
