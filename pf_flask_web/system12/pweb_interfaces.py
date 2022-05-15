@@ -11,7 +11,7 @@ class PWebRegisterModule(ABC):
 class PWebAppRegistry(ABC):
 
     @abstractmethod
-    def register_model(self, pweb_db):
+    def register_model(self, pweb_db) -> list:
         pass
 
     @abstractmethod
