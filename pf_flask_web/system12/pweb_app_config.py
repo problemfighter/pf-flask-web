@@ -84,6 +84,7 @@ class PWebAppConfig(PFPYConfigObj):
     EMAIL_SMTP_ENCRYPTION: str = "ssl"  # ssl or tls
 
     # Resource Management
+    TEMP_DIR: str = None
     UPLOADED_STATIC_RESOURCES: str = None
     UPLOADED_STATIC_RESOURCES_URL: str = "/assets"
 
@@ -95,4 +96,6 @@ class PWebAppConfig(PFPYConfigObj):
                 self.SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(self.BASE_DIR, 'pweb.sqlite3')
         if not self.UPLOADED_STATIC_RESOURCES:
             self.UPLOADED_STATIC_RESOURCES = os.path.join(self.BASE_DIR, "uploaded-resources")
+        if not self.TEMP_DIR:
+            self.TEMP_DIR = os.path.join(self.BASE_DIR, "pweb-temp")
         return self
