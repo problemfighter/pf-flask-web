@@ -88,6 +88,13 @@ class PWebAppConfig(PFPYConfigObj):
     UPLOADED_STATIC_RESOURCES: str = None
     UPLOADED_STATIC_RESOURCES_URL: str = "/assets"
 
+    pWebCustomConfiguration: dict = {}
+
+    def get_custom_conf(self, key, default=None):
+        if key in self.pWebCustomConfiguration:
+            return self.pWebCustomConfiguration[key]
+        return default
+
     def set_base_dir(self, path):
         if not self.BASE_DIR:
             self.BASE_DIR = path

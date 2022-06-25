@@ -80,6 +80,12 @@ class Bismillah(object):
             for key in config_map:
                 if key.isupper() and hasattr(self._config, key):
                     setattr(self._config, key, getattr(confi_class, key))
+                elif key.isupper():
+                    _pWebCustomConfiguration = getattr(self._config, "pWebCustomConfiguration")
+                    if isinstance(_pWebCustomConfiguration, dict) and key not in _pWebCustomConfiguration:
+                        _pWebCustomConfiguration[key] = getattr(confi_class, key)
+                        setattr(self._config, "pWebCustomConfiguration", _pWebCustomConfiguration)
+
         self._config = yaml_env.load(project_root_path=self._config.APP_CONFIG_PATH, config_obj=self._config)
 
     def _process_project_root_path(self, root_path):
