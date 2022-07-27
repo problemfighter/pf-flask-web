@@ -22,6 +22,9 @@ class PWebAppConfig(PFPYConfigObj):
     MODULE_REGISTRY_PACKAGE: list = ["application.config.registry.Register"]
     APPLICATION_CONFIGURATION: str = "application.config.app_config.Config"
 
+    PWEB_LOG_ENABLE: bool = False
+    PWEB_LOG_FILE: str = None
+
     # Auth Configuration
     ENABLE_AUTH_SYSTEM: bool = True
     LOGIN_IDENTIFIER: str = "email"  # email, username
