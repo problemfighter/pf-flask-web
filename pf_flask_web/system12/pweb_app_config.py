@@ -88,6 +88,7 @@ class PWebAppConfig(PFPYConfigObj):
 
     # Resource Management
     TEMP_DIR: str = None
+    INTERNAL_DATA_DIR: str = None
     UPLOADED_STATIC_RESOURCES: str = None
     UPLOADED_STATIC_RESOURCES_URL: str = "/assets"
 
@@ -108,4 +109,6 @@ class PWebAppConfig(PFPYConfigObj):
             self.UPLOADED_STATIC_RESOURCES = os.path.join(self.BASE_DIR, "uploaded-resources")
         if not self.TEMP_DIR:
             self.TEMP_DIR = os.path.join(self.BASE_DIR, "pweb-temp")
+        if not self.INTERNAL_DATA_DIR:
+            self.INTERNAL_DATA_DIR = os.path.join(self.BASE_DIR, "pweb-internal")
         return self
