@@ -1,4 +1,4 @@
-from flask import render_template, send_from_directory
+from flask import render_template, send_from_directory, make_response
 from pf_flask_auth.common.pffa_auth_config import PFFAuthConfig
 from pf_flask_auth.pf_flask_auth import pf_flask_auth
 from pf_flask_mail.common.pffm_config import PFFMConfig
@@ -164,4 +164,6 @@ class PwebBootstrap:
             self._pweb_app.add_url_rule(url, view_func=self.static_resource_endpoint)
 
     def static_resource_endpoint(self, path):
-        return send_from_directory(self._config.UPLOADED_STATIC_RESOURCES, path)
+        response = make_response(send_from_directory(self._config.UPLOADED_STATIC_RESOURCES, path))
+        response.headers['Access-Control-Allow-Origin'] = self._config.ALLOW_ACCESS_CONTROL_ORIGIN
+        return response
