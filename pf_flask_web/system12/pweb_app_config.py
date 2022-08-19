@@ -47,6 +47,9 @@ class PWebAppConfig(PFPYConfigObj):
     ENABLE_SESSION_AUTH: bool = True
     ENABLE_FORM_END_POINTS: bool = True
 
+    CHECK_IS_ACTIVE: bool = True
+    CHECK_IS_VERIFIED: bool = True
+
     # Model Customization
     ENABLE_DEFAULT_AUTH_MODEL: bool = True
     CUSTOM_OPERATOR_MODEL: OperatorAbstract = None

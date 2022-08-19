@@ -101,6 +101,9 @@ class PwebBootstrap:
             PFFAuthConfig.customOperatorDTO = self._config.CUSTOM_OPERATOR_DTO
             PFFAuthConfig.enablePFAPIConvention = True
 
+            PFFAuthConfig.checkIsActive = self._config.CHECK_IS_ACTIVE
+            PFFAuthConfig.checkIsVerified = self._config.CHECK_IS_VERIFIED
+
             # ABC
             PFFAuthConfig.authInterceptOnVerifyABC = self._config.AUTH_INTERCEPT_ON_VERIFY
             PFFAuthConfig.authInterceptAPILoginTokenABC = self._config.AUTH_INTERCEPT_API_LOGIN_TOKEN
