@@ -91,6 +91,9 @@ class Bismillah(object):
 
         self._config = yaml_env.load(project_root_path=self._config.APP_CONFIG_PATH, config_obj=self._config)
 
+        if confi_class:
+            yaml_env.merge_config(confi_class)
+
     def _process_project_root_path(self, root_path):
         root_dir = os.path.dirname(os.path.abspath(root_path))
         self._config.set_base_dir(root_dir)
