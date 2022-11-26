@@ -12,6 +12,7 @@ class PWebAppConfig(PFPYConfigObj):
     SECRET_KEY: str = 'random_secret_key_base'
     SQLALCHEMY_TRACK_MODIFICATIONS: bool = False
     SQLALCHEMY_DATABASE_URI: str = None
+    SQLALCHEMY_ECHO: bool = False
     SWAGGER_ENABLE: bool = False
     DEFAULT_URL: str = None
     DEFAULT_HTML: str = 'bismillah.html'
