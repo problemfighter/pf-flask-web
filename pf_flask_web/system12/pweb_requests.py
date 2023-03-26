@@ -9,6 +9,12 @@ class HTTPResponse:
     data: any
     contentType: str
 
+    def __init__(self):
+        self.status = None
+        self.httpCode = None
+        self.data = None
+        self.contentType = None
+
     def process_response(self, response) -> "HTTPResponse":
         self.httpCode = response.status_code
         if 200 <= self.httpCode < 300:
