@@ -8,6 +8,7 @@ class PWebAppConfig(PFPYConfigObj):
     BASE_DIR: str = None
     APP_CONFIG_PATH: str = None
     DEBUG: bool = True
+    ENV: str = "dev"
     STRING_IMPORT_SILENT: bool = False
     SECRET_KEY: str = 'random_secret_key_base'
     SQLALCHEMY_TRACK_MODIFICATIONS: bool = False
