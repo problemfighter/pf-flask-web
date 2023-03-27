@@ -61,6 +61,7 @@ class PWebAppConfig(PFPYConfigObj):
 
     # Basic Configuration
     APP_NAME = "PWeb"
+    TITLE_POSTFIX: str = ""
 
     # Auth End Points
     LOGIN_VIEW_NAME = None
